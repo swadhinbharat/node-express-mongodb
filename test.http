@@ -1,0 +1,39 @@
+@baseURL = http://localhost:8080
+
+### get all Tutorials
+GET	{{baseURL}}/api/tutorials
+
+### get Tutorial by id
+GET	{{baseURL}}/api/tutorials/66bc0e0ad73f216a43df0a19
+
+### add new Tutorial
+POST {{baseURL}}/api/tutorials
+Content-Type: application/json
+
+{
+    "title": "Title {{$randomInt 5 200}}",
+    "description": "Description {{$randomInt 5 200}}",
+    "published": true
+}
+
+### update Tutorial by id
+PUT	{{baseURL}}/api/tutorials/66bc0e0ad73f216a43df0a19
+Content-Type: application/json
+
+{
+    "title": "Knowledge 2",
+    "description": "Knowledge is power 2",
+    "published": false
+}
+
+### remove Tutorial by id
+DELETE {{baseURL}}/api/tutorials/66bc0e0ad73f216a43df0a19
+
+### remove all Tutorials
+DELETE {{baseURL}}/api/tutorials
+
+### find all published Tutorials
+GET	{{baseURL}}/api/tutorials/published
+
+### find all Tutorials which title contains 'kw'
+GET	{{baseURL}}/api/tutorials?title=[kw]	
